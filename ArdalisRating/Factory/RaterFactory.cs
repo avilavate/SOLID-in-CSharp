@@ -20,10 +20,10 @@ namespace ArdalisRating.Factory
             }
             catch (Exception)
             {
-
+                //Null Obje ct patter
                 return new NullRater();
             }
-           
+
             //switch (policy.Type)
             //{
             //    case PolicyType.Life:
