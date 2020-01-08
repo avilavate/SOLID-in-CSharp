@@ -22,9 +22,7 @@ namespace ArdalisRating
 
             // load policy - open file policy.json
             string policyJson = _PolicyIO.GetPolicyFromSource();
-
-            var policy = JsonConvert.DeserializeObject<Policy>(policyJson,
-                new StringEnumConverter());
+            Policy policy = _PolicyIO.DeserializePolicy(policyJson);
 
             switch (policy.Type)
             {
@@ -103,5 +101,7 @@ namespace ArdalisRating
 
             _Logger.Log("Rating completed.");
         }
+
+      
     }
 }
