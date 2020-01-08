@@ -16,8 +16,17 @@ namespace ArdalisRating
 
         public Policy DeserializePolicy(string policyJson)
         {
-            return JsonConvert.DeserializeObject<Policy>(policyJson,
+            try
+            {
+                return JsonConvert.DeserializeObject<Policy>(policyJson,
                 new StringEnumConverter());
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+            
         }
     }
 }

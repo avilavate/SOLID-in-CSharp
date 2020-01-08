@@ -9,20 +9,35 @@ namespace ArdalisRating.Factory
     {
         public IRater Create(RatingEngine engine, Policy policy)
         {
-            switch (policy.Type)
+            try
             {
-                case PolicyType.Life:
-                    return new LifeRater(engine, policy);
-                   
-                case PolicyType.Land:
-                    return new LandRater(engine, policy);
-                   
-                case PolicyType.Auto:
-                    return new AutoRater(engine, policy);
-                default:
-                    return new NullRater(engine, policy);
-                    //Null Object design pattern
+                return (IRater)
+               Activator.CreateInstance(
+                   Type.GetType($"ArdalisRating.Raters." + policy.Type.ToString() + "Rater")
+                   , new Object[] {
+                        engine, policy
+                   });
             }
+            catch (Exception)
+            {
+
+                return new NullRater();
+            }
+           
+            //switch (policy.Type)
+            //{
+            //    case PolicyType.Life:
+            //        return new LifeRater(engine, policy);
+
+            //    case PolicyType.Land:
+            //        return new LandRater(engine, policy);
+
+            //    case PolicyType.Auto:
+            //        return new AutoRater(engine, policy);
+            //    default:
+            //        return new NullRater(engine, policy);
+            //        //Null Object design pattern
+            //}
         }
     }
 }
