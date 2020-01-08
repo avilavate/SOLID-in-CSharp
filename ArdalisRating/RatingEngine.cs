@@ -13,6 +13,7 @@ namespace ArdalisRating
     {
         public decimal Rating { get; set; }
         private Logger _Logger { get; } = new Logger();
+        private PolicyIO _PolicyIO { get; } = new PolicyIO();
         public void Rate()
         {
             _Logger.Log("Starting rate.");
@@ -20,7 +21,7 @@ namespace ArdalisRating
             _Logger.Log("Loading policy.");
 
             // load policy - open file policy.json
-            string policyJson = File.ReadAllText("policy.json");
+            string policyJson = _PolicyIO.GetPolicyFromSource();
 
             var policy = JsonConvert.DeserializeObject<Policy>(policyJson,
                 new StringEnumConverter());
