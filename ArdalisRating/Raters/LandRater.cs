@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ArdalisRating.Raters
 {
-    class LandRater
+    class LandRater: IRater
     {
         private readonly Logger _Logger = new Logger();
         public RatingEngine engine { get; set; }

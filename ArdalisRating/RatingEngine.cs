@@ -1,4 +1,5 @@
-﻿using ArdalisRating.Raters;
+﻿using ArdalisRating.Factory;
+using ArdalisRating.Raters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
@@ -25,32 +26,13 @@ namespace ArdalisRating
             string policyJson = _PolicyIO.GetPolicyFromSource();
             Policy policy = _PolicyIO.DeserializePolicy(policyJson);
 
-            switch (policy.Type)
-            {
-                case PolicyType.Auto:
-                    var rater = new AutoRater(this, policy);
-                    rater.Rate();
-                    break;
-
-                case PolicyType.Land:
-                    var rater2 = new LandRater(this, policy);
-                    rater2.Rate();
-                    break;
-
-                case PolicyType.Life:
-                    var rater3 = new LifeRater(this, policy);
-                    rater3.Rate();
-                    break;
-
-                default:
-                    _Logger.Log("Unknown policy type");
-                    break;
-            }
+            var rater = new RaterFactory().Create(this, policy);
+            rater.Rate();
 
             _Logger.Log("Rating completed.");
         }
 
-     
+
 
     }
 }
