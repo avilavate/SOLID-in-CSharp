@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace ArdalisRating
+namespace AvilRating
 {
     class PolicyIO
     {

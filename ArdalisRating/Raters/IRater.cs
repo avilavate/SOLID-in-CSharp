@@ -1,4 +1,4 @@
-﻿namespace ArdalisRating.Raters
+﻿namespace AvilRating.Raters
 {
     interface IRater
     {

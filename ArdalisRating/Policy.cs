@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ArdalisRating
+namespace AvilRating
 {
 
     public class Policy

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ArdalisRating.Raters
+namespace AvilRating.Raters
 {
     class AutoRater: IRater
     {

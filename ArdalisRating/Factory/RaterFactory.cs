@@ -1,9 +1,9 @@
-﻿using ArdalisRating.Raters;
+﻿using AvilRating.Raters;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ArdalisRating.Factory
+namespace AvilRating.Factory
 {
     class RaterFactory
     {
@@ -13,14 +13,14 @@ namespace ArdalisRating.Factory
             {
                 return (IRater)
                Activator.CreateInstance(
-                   Type.GetType($"ArdalisRating.Raters." + policy.Type.ToString() + "Rater")
+                   Type.GetType($"AvilRating.Raters." + policy.Type.ToString() + "Rater")
                    , new Object[] {
                         engine, policy
                    });
             }
             catch (Exception)
             {
-                //Null Obje ct patter
+                //Null Object patter
                 return new NullRater();
             }
 

@@ -1,11 +1,11 @@
-﻿using ArdalisRating.Factory;
-using ArdalisRating.Raters;
+﻿using AvilRating.Factory;
+using AvilRating.Raters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
 using System.IO;
 
-namespace ArdalisRating
+namespace AvilRating
 {
     /// <summary>
     /// The RatingEngine reads the policy application details from a file and produces a numeric 
